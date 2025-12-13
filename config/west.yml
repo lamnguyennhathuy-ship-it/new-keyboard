@@ -10,15 +10,15 @@ manifest:
     - name: AYM1607
       url-base: https://github.com/AYM1607
   projects:
-    - name: zmk
+    - name: zephyr
       remote: zmkfirmware
-      revision: v4.1.0
+      revision: v3.5.0+zmk-fixes
       import: app/west.yml
     - name: zmk-nice-oled
       remote: mctechnology17
-      revision: v4.1.0
+      revision: v3.5.0+zmk-fixes
     - name: zmk-driver-azoteq-iqs5xx
       remote: AYM1607
-      revision: v4.1.0
+      revision: v3.5.0+zmk-fixes
   self:
     path: config
