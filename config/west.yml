@@ -12,13 +12,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v4.1.0+zmk-fixes
+      revision: v4.1.0
       import: app/west.yml
     - name: zmk-nice-oled
       remote: mctechnology17
-      revision: v4.1.0+zmk-fixes
+      revision: v4.1.0
     - name: zmk-driver-azoteq-iqs5xx
       remote: AYM1607
-      revision: v4.1.0+zmk-fixes
+      revision: v4.1.0
   self:
     path: config
