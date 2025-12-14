@@ -1,4 +1,6 @@
 manifest:
+  defaults:
+    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -12,13 +14,10 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
       import: app/west.yml
     - name: zmk-nice-oled
       remote: mctechnology17
-      revision: v0.3
     - name: zmk-driver-azoteq-iqs5xx
       remote: AYM1607
-      revision: v0.3
   self:
     path: config
