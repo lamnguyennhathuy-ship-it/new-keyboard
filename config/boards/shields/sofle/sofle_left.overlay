@@ -27,8 +27,12 @@
     joystick_left: joystick_left {
         compatible = "zmk,input-analog-selector";
         sampling-hz = <100>;
-        // Change the '0' and '1' to match your actual ADC pin indices
         x_axis { io-channels = <&adc 5>; }; 
         y_axis { io-channels = <&adc 7>; };
+    };
+
+    left_listener {
+        compatible = "zmk,input-listener";
+        device = <&joystick_left>;
     };
 };
