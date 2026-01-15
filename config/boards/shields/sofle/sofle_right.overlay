@@ -29,11 +29,15 @@
 };
 
 / {
-    joystick_right: joystick_right {
+    joystick_left: joystick_left {
         compatible = "zmk,input-analog-selector";
         sampling-hz = <100>;
-        // Ensure these match the pins you wired on the right board
-        x_axis { io-channels = <&adc 5>; };
+        x_axis { io-channels = <&adc 5>; }; 
         y_axis { io-channels = <&adc 7>; };
+    };
+
+    left_listener {
+        compatible = "zmk,input-listener";
+        device = <&joystick_left>;
     };
 };
