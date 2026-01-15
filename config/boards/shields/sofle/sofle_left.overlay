@@ -1,11 +1,5 @@
 #include "sofle.dtsi"
 
-/ {
-    chosen {
-        zmk,kscan = &kscan0;
-    };
-};
-
 &kscan0 {
     col-gpios
         = <&pro_micro  8 GPIO_ACTIVE_HIGH>
@@ -24,23 +18,3 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 };
-
-&pro_micro_i2c {
-    status = "okay";
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <32>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        inversion-on;
-        prechargep = <0x22>;
-    };
-};
-
