@@ -45,7 +45,3 @@
         prechargep = <0x22>;
     };
 };
-
-&tps43_listener {
-    status = "okay";
-};
