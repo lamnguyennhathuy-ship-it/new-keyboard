@@ -31,11 +31,13 @@
 / {
     joystick_right: joystick_right {
         compatible = "zmk,input-analog-selector";
+        status = "okay";
         sampling-hz = <100>;
         x_axis { io-channels = <&adc 5>; }; 
         y_axis { io-channels = <&adc 7>; };
     };
 
+    // This listener ONLY exists on the right side
     right_listener {
         compatible = "zmk,input-listener";
         device = <&joystick_right>;
