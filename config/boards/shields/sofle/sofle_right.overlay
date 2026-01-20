@@ -35,3 +35,13 @@
         input-processors = <&zip_xy_to_scroll_mapper>; 
     };
 };
+/ {
+    /* Right side button on P0.02 */
+    joystick_button_right: gpio_keys_right {
+        compatible = "gpio-keys";
+        joy_click_right: joy_click_right {
+            gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            label = "Right Joystick Click";
+        };
+    };
+};
