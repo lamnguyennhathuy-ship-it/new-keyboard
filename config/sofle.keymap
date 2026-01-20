@@ -41,8 +41,41 @@
             tapping-term-ms = <500>;
             bindings = <&l_lock>, <&l_unlock>;
         };
+
+        /* Right Stick: Tap = Left Click, Tap+Hold = Right Click */
+        /* We use 'Hold-Tap' for this specific logic */
+        joy_rt_th: right_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mkp>, <&mkp>;
+        };
+
+        /* Left Stick: 1 Tap = Middle, 2 Taps = Back, 3 Taps = Forward */
+        joy_lt_td: left_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&mkp MCLK>, <&mkp MB4>, <&mkp MB5>;
+        };
     };
-// For future desired tapdance behaviors, you can add up to three mod-tap and/or layer-tap 
+    /* Link the physical GPIO buttons to these behaviors */
+    left_button_bind {
+        compatible = "zmk,input-behavior-listener";
+        device = <&joystick_button_left>;
+        layers = <0 1 2 3>;
+        bindings = <&joy_lt_td>;
+    };
+
+    right_button_bind {
+        compatible = "zmk,input-behavior-listener";
+        device = <&joystick_button_right>;
+        layers = <0 1 2 3>;
+        /* For hold-tap, we pass the two parameters: RCLK for hold, LCLK for tap */
+        bindings = <&joy_rt_th RCLK LCLK>;
+    };
+// For future desired tapdance behaviors, you can add up to three hold-tap and/or layer-tap 
 // behaviors so a single key can have up to six functions (three taps and three holds).
 
     macros {
