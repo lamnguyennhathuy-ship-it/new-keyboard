@@ -24,31 +24,3 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 };
-
-#&adc {
-#    status = "okay";
-#};
-#
-#/ {
-#    right_joystick_listener {
-#        compatible = "zmk,input-listener";
-#        device = <&anin0>; 
-#        input-processors = <&zip_xy_to_scroll_mapper>; 
-#    };
-#};
-#/ {
-#    /* Right side button on P0.02 */
-#    joystick_button_right: gpio_keys_right {
-#        compatible = "gpio-keys";
-#        joy_click_right: joy_click_right {
-#            gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-#            label = "Right Joystick Click";
-#        };
-#    };
-#    right_button_bind {
-#        compatible = "zmk,input-behavior-listener";
-#        device = <&joystick_button_right>;
-#        layers = <0 1 2 3>;
-#        bindings = <&joy_rt_th RCLK LCLK>; // Reference to the Hold-Tap in keymap
-#    };
-#};
