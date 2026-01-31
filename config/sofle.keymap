@@ -40,22 +40,22 @@
 
         /* Right Stick: Tap = Left Click, Tap+Hold = Right Click */
         /* We use 'Hold-Tap' for this specific logic */
-        joy_rt_th: right_tap_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mkp>, <&mkp>;
-        };
+#        joy_rt_th: right_tap_hold {
+#            compatible = "zmk,behavior-hold-tap";
+#            #binding-cells = <2>;
+#            flavor = "tap-preferred";
+#            tapping-term-ms = <200>;
+#            bindings = <&mkp>, <&mkp>;
+#        };
 
         /* Left Stick: 1 Tap = Middle, 2 Taps = Back, 3 Taps = Forward */
-        joy_lt_td: left_tap_dance {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&mkp MCLK>, <&mkp MB4>, <&mkp MB5>;
-        };
-    };
+#        joy_lt_td: left_tap_dance {
+#            compatible = "zmk,behavior-tap-dance";
+#            #binding-cells = <0>;
+#            tapping-term-ms = <300>;
+#            bindings = <&mkp MCLK>, <&mkp MB4>, <&mkp MB5>;
+#        };
+#    };
 
 // For future desired tapdance behaviors, you can add up to three hold-tap and/or layer-tap 
 // behaviors so a single key can have up to six functions (three taps and three holds).
