@@ -19,30 +19,30 @@
     };
 };
 
-&adc {
-    status = "okay";
-};
-
-/ {
-    joystick_listener {
-        compatible = "zmk,input-listener";
-        device = <&anin0>;
-    };
-};
-
-/ {
-    /* Left side button on P0.02 */
-    joystick_button_left: gpio_keys_left {
-        compatible = "gpio-keys";
-        joy_click_left: joy_click_left {
-            gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-            label = "Left Joystick Click";
-        };
-    };
-    left_button_bind {
-        compatible = "zmk,input-behavior-listener";
-        device = <&joystick_button_left>;
-        layers = <0 1 2 3>;
-        bindings = <&joy_lt_td>; // Reference to the Tap Dance in keymap
-    };
-};
+#&adc {
+#    status = "okay";
+#};
+#
+#/ {
+#    joystick_listener {
+#        compatible = "zmk,input-listener";
+#        device = <&anin0>;
+#    };
+#};
+#
+#/ {
+#    /* Left side button on P0.02 */
+#    joystick_button_left: gpio_keys_left {
+#        compatible = "gpio-keys";
+#        joy_click_left: joy_click_left {
+#            gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+#            label = "Left Joystick Click";
+#        };
+#    };
+#    left_button_bind {
+#        compatible = "zmk,input-behavior-listener";
+#        device = <&joystick_button_left>;
+#        layers = <0 1 2 3>;
+#        bindings = <&joy_lt_td>; // Reference to the Tap Dance in keymap
+#    };
+#};
